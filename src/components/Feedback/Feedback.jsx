@@ -1,9 +1,7 @@
 export default function Feedback({
-  good,
-  neutral,
-  bad,
+  state: { good, neutral, bad },
   total,
-  positivePercentage,
+  preCent,
 }) {
   return (
     <div>
@@ -11,7 +9,7 @@ export default function Feedback({
       <p>Neutral: {neutral}</p>
       <p>Bad: {bad}</p>
       <p>Total: {total}</p>
-      <p>Positive: {positivePercentage}%</p>
+      <p>Positive: {preCent}%</p>
     </div>
   );
 }
