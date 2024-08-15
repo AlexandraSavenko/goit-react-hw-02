@@ -1,4 +1,6 @@
-export default function Options() {
+export default function Options({ state }) {
+  console.log(state);
+
   return (
     <div>
       <button>Good</button>
