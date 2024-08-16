@@ -1,0 +1,6 @@
+.wrap {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+}

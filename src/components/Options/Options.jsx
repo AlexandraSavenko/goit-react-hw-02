@@ -1,3 +1,4 @@
+import css from "./Options.module.css";
 export default function Options({ state, onChangeState, total }) {
   const updateFeedbacks = (feedback) => {
     onChangeState({ ...state, [feedback]: state[feedback] + 1 });
@@ -10,7 +11,7 @@ export default function Options({ state, onChangeState, total }) {
     });
   };
   return (
-    <div>
+    <div className={css.wrap}>
       <button onClick={() => updateFeedbacks("good")}>Good</button>
       <button onClick={() => updateFeedbacks("neutral")}>Neutral</button>
       <button onClick={() => updateFeedbacks("bad")}>Bad</button>

@@ -35,7 +35,7 @@ const App = () => {
           preCent={positiveFeedback}
         />
       ) : (
-        <p>No feedbacks yet</p>
+        <p className="text">No feedbacks yet</p>
       )}
     </div>
   );
