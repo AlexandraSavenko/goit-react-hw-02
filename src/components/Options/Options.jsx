@@ -1,9 +1,9 @@
 export default function Options({ state, onChangeState }) {
   return (
     <div>
-      <button onClick={onChangeState}>Good</button>
-      <button>Neutral</button>
-      <button>Bad</button>
+      <button onClick={() => onChangeState("good")}>Good</button>
+      <button onClick={() => onChangeState("neutral")}>Neutral</button>
+      <button onClick={() => onChangeState("bad")}>Bad</button>
       <button>Reset</button>
     </div>
   );
