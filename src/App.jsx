@@ -13,21 +13,20 @@ const App = () => {
     bad: 0,
   });
 
-  const updateFeedbacks = (feedback) => {
-    console.log(feedback);
-
-    setValue({ ...value, [feedback]: value[feedback] + 1 });
-  };
-  const total = value.good + value.neutral + value.bad;
+  const totalFeedbacks = value.good + value.neutral + value.bad;
   const positivePercentage =
-    total > 0 ? Math.round((value.good / total) * 100) : 0;
+    totalFeedbacks > 0 ? Math.round((value.good / totalFeedbacks) * 100) : 0;
 
   return (
     <div>
       <Description />
-      <Options state={value} onChangeState={updateFeedbacks} />
-      {total > 0 ? (
-        <Feedback state={value} total={total} preCent={positivePercentage} />
+      <Options state={value} onChangeState={setValue} total={totalFeedbacks} />
+      {totalFeedbacks > 0 ? (
+        <Feedback
+          state={value}
+          total={totalFeedbacks}
+          preCent={positivePercentage}
+        />
       ) : (
         <p>No feedbacks yet</p>
       )}

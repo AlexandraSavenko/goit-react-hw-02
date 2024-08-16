@@ -1,10 +1,20 @@
-export default function Options({ state, onChangeState }) {
+export default function Options({ state, onChangeState, total }) {
+  const updateFeedbacks = (feedback) => {
+    onChangeState({ ...state, [feedback]: state[feedback] + 1 });
+  };
+  const resetClicks = () => {
+    onChangeState({
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    });
+  };
   return (
     <div>
-      <button onClick={() => onChangeState("good")}>Good</button>
-      <button onClick={() => onChangeState("neutral")}>Neutral</button>
-      <button onClick={() => onChangeState("bad")}>Bad</button>
-      <button>Reset</button>
+      <button onClick={() => updateFeedbacks("good")}>Good</button>
+      <button onClick={() => updateFeedbacks("neutral")}>Neutral</button>
+      <button onClick={() => updateFeedbacks("bad")}>Bad</button>
+      {total > 0 && <button onClick={resetClicks}>Reset</button>}
     </div>
   );
 }
