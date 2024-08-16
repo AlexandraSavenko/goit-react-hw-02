@@ -4,3 +4,11 @@
   justify-content: flex-start;
   margin-bottom: 8px;
 }
+.button {
+  border: 1px solid gray;
+  color: gray;
+}
+.button:hover {
+  border-color: black;
+  color: black;
+}

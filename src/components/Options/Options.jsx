@@ -12,10 +12,20 @@ export default function Options({ state, onChangeState, total }) {
   };
   return (
     <div className={css.wrap}>
-      <button onClick={() => updateFeedbacks("good")}>Good</button>
-      <button onClick={() => updateFeedbacks("neutral")}>Neutral</button>
-      <button onClick={() => updateFeedbacks("bad")}>Bad</button>
-      {total > 0 && <button onClick={resetClicks}>Reset</button>}
+      <button className={css.button} onClick={() => updateFeedbacks("good")}>
+        Good
+      </button>
+      <button className={css.button} onClick={() => updateFeedbacks("neutral")}>
+        Neutral
+      </button>
+      <button className={css.button} onClick={() => updateFeedbacks("bad")}>
+        Bad
+      </button>
+      {total > 0 && (
+        <button className={css.button} onClick={resetClicks}>
+          Reset
+        </button>
+      )}
     </div>
   );
 }
