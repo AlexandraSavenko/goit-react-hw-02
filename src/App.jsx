@@ -7,16 +7,23 @@ import Options from "./components/Options/Options";
 import Feedback from "./components/Feedback/Feedback";
 
 const App = () => {
-  const [value, setValue] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
+  const [value, setValue] = useState(() => {
+    const savedFeedbacks = window.localStorage.getItem("feedbacks");
+    return savedFeedbacks !== null
+      ? JSON.parse(savedFeedbacks)
+      : {
+          good: 0,
+          neutral: 0,
+          bad: 0,
+        };
   });
 
   const totalFeedbacks = value.good + value.neutral + value.bad;
-  const positivePercentage =
+  const positiveFeedback =
     totalFeedbacks > 0 ? Math.round((value.good / totalFeedbacks) * 100) : 0;
-
+  useEffect(() => {
+    window.localStorage.setItem("feedbacks", JSON.stringify(value));
+  }, [value]);
   return (
     <div>
       <Description />
@@ -25,7 +32,7 @@ const App = () => {
         <Feedback
           state={value}
           total={totalFeedbacks}
-          preCent={positivePercentage}
+          preCent={positiveFeedback}
         />
       ) : (
         <p>No feedbacks yet</p>
